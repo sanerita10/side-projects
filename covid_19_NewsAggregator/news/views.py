@@ -6,12 +6,10 @@ from bs4 import BeautifulSoup
 
 # GEtting news from Times of India
 
-toi_r = requests.get("https://timesofindia.indiatimes.com/coronavirus")
+toi_r = requests.get("https://timesofindia.indiatimes.com/india/coronavirus-live-updates-india-will-play-a-leading-role-in-global-revival-pm-modi-says/liveblog/76843875.cms")
 toi_soup = BeautifulSoup(toi_r.content, 'html.parser')
 
-toi_headings = toi_soup.find_all('h2')
-
-toi_headings = toi_headings[0:-13] # removing footers
+toi_headings = toi_soup.find_all("div",{"class":"_1KydD"})
 
 toi_news = []
 
